@@ -1,2 +1,2 @@
 # productLandingPage
-A producto landing page.
+A product landing page.
