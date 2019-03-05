@@ -1,5 +1,9 @@
+/*
+    color base: #fcb93c
+    color oscuro: #f19e03;
+*/
 /** global element styling **/
-@import 'https://fonts.googleapis.com/css?family=Lato:400,700';
+@import 'https://fonts.googleapis.com/css?family=Lato:100,400,700';
 
 * 
 {
@@ -12,6 +16,7 @@ body
 {
     background-color: #f4f4f4;
     font-family: 'Lato', sans-serif;
+    overflow-x: hidden; /* todo el excedente horizontal desaparecerá */
 }
 
 #page-wrapper
@@ -44,7 +49,7 @@ a
     padding: 0 20px;
     height: 40px;
     font-size: 1em;
-    font-weight: 900;
+    /*font-weight: 900;*/
     text-transform: uppercase;
     /*border: 3px black solid;*/
     border-radius: 100px;
@@ -62,14 +67,16 @@ a
 
 header
 {
-  position: fixed;
-  top: 0;
-  min-height: 75px;
-  padding: 0px 20px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: rgba(255,255,255,0.98); /*color anterior eee*/
+    position: fixed;
+    top: 0; /* lugar donde comenzará el nav: en el 0,0 */
+    left: 0;
+    width: 100%;
+    min-height: 75px;
+    padding: 0px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(255,255,255,0.98); /*color anterior eee*/
 }
 
 .logo 
@@ -89,6 +96,7 @@ header
     margin-left: 20px;
 }
 
+/* nav-bar */
 nav 
 {
     font-weight: 400;
@@ -101,6 +109,21 @@ nav ul
     flex-direction: row;
     justify-content: space-around;
 }
+
+nav li a:link,
+nav li a:visited
+{
+    padding: 8px 0px; /* top-bottom: 8px | left-right: 0px */ /* distancia la franja de los links */
+    border-bottom: 2px solid transparent; /* transparent = no será visible hasta que realmente lo pasemos*/
+    transition: border-bottom 0.2s;
+}
+
+nav li a:hover,
+nav li a:active
+{
+    border-bottom: 2px solid #fcb93c; /* borde naranjo en los links */
+}
+
 
 /* hero */
 
@@ -217,23 +240,38 @@ nav ul
     text-align: center;
     width: calc(100%  / 3);
     margin: 10px;
-    border: 1px solid #000;
-    border-radius: 3px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 2px #efefef; /* primer valor:  | X axis | Y axis | blur | color*/
+    background-color: #fff;
+    color: #555;
+}
+
+#tenor div, #bass div, #valve div
+{
+    width: 100%; /* ancho de franja en planes */
+    padding: 15px;
+    border-bottom: 1px solid #e8e8e8;
 }
 
 .level
 {
-    background-color: #ddd;
-    color: black;
+    background-color: #fcb93c;
+    color: #333;
     padding: 15px 0;
     width: 100%;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight:700;
+    border-radius: 3px;
 }
 
 #tenor h2, #bass h2, #valve h2
 {
     margin-top: 15px;
+    font-size: 250%;
+    margin-bottom: 10px;
+    font-weight: 100;
+    color: #fcb93c;
 }
 
 #tenor ol, #bass ol, #valve ol
@@ -250,14 +288,15 @@ nav ul
 {
     border: 0;
     margin: 15px 0;
-    background-color: #f1c40f;
+    background-color: #fcb93c;
     font-weight: 400;
+    transition: background-color 1s;
+    color: white;
 }
 
 .price:hover 
 {
-    background-color: orange;
-    transition: background-color 1s;
+    background-color: #f19e03;
 }
 
 
